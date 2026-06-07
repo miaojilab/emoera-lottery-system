@@ -1,0 +1,351 @@
+.page {
+  --gray-rgb: 0, 0, 0;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+
+  --button-primary-hover: #383838;
+  --button-secondary-hover: #f2f2f2;
+
+  display: grid;
+  grid-template-rows: 20px 1fr 20px;
+  align-items: center;
+  justify-items: center;
+  min-height: 100svh;
+  padding: 80px;
+  gap: 64px;
+  font-family: var(--font-geist-sans);
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+
+    --button-primary-hover: #ccc;
+    --button-secondary-hover: #1a1a1a;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  /* 移除原有背景 */
+  /* background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
+}
+
+.container {
+  display: flex;
+  gap: 2rem;
+  max-width: 1400px;
+  width: 100%;
+}
+
+.leftSection {
+  flex: 1;
+}
+
+.rightSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.userCard, .lotteryCard, .winnersCard, .allWinnersCard {
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+.lotterySettings {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: #f5f7fa;
+  border-radius: 8px;
+}
+
+.settingItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.settingLabel {
+  margin-right: 1rem;
+  font-weight: 500;
+  min-width: 140px;
+}
+
+.numberInput {
+  width: 120px;
+}
+
+.userCount {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.drawButton {
+  width: 100%;
+  height: 50px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+}
+
+.userTable, .currentWinnersTable, .allWinnersTable {
+  margin-top: 1rem;
+}
+
+.resultContent {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.winnersCard {
+  min-height: 200px;
+}
+
+.allWinnersCard {
+  min-height: 300px;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .leftSection, .rightSection {
+    width: 100%;
+  }
+}
+
+.ctas {
+  display: flex;
+  gap: 16px;
+}
+
+.ctas a {
+  appearance: none;
+  border-radius: 128px;
+  height: 48px;
+  padding: 0 20px;
+  border: none;
+  border: 1px solid transparent;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+a.primary {
+  background: var(--foreground);
+  color: var(--background);
+  gap: 8px;
+}
+
+a.secondary {
+  border-color: var(--gray-alpha-200);
+  min-width: 180px;
+}
+
+.footer {
+  grid-row-start: 3;
+  display: flex;
+  gap: 24px;
+}
+
+.footer a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer img {
+  flex-shrink: 0;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  a.primary:hover {
+    background: var(--button-primary-hover);
+    border-color: transparent;
+  }
+
+  a.secondary:hover {
+    background: var(--button-secondary-hover);
+    border-color: transparent;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 32px;
+    padding-bottom: 80px;
+  }
+
+  .main {
+    align-items: center;
+  }
+
+  .main ol {
+    text-align: center;
+  }
+
+  .ctas {
+    flex-direction: column;
+  }
+
+  .ctas a {
+    font-size: 14px;
+    height: 40px;
+    padding: 0 16px;
+  }
+
+  a.secondary {
+    min-width: auto;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: invert();
+  }
+}
+
+.historyButton {
+  align-self: flex-end;
+  font-size: 1rem;
+  padding: 0;
+  height: auto;
+  margin-top: 1rem;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.historyButton {
+  font-size: 1rem;
+  padding: 0;
+  height: auto;
+}
+
+.confirmList {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  list-style-type: none;
+}
+
+.confirmList li {
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.confirmList li::before {
+  content: "•";
+  color: #1677ff;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.successModal {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.successCount {
+  font-size: 1.5rem;
+  color: #1677ff;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.successWinners {
+  font-size: 1.8rem;
+  line-height: 1.5;
+  color: #262626;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.successWinner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.winnerDepartment {
+  font-size: 1rem;
+  color: #666;
+  font-weight: normal;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.addForm {
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #f0f0f0;
+}
+
+.generateForm {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.generateInput {
+  width: 120px;
+}
+
+@media (max-width: 768px) {
+  .formGroup {
+    gap: 1.5rem;
+  }
+
+  .addForm,
+  .generateForm {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .generateInput {
+    width: 100%;
+  }
+}

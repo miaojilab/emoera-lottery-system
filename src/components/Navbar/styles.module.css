@@ -1,0 +1,156 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #ffffff !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03),
+              0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 64px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: 48px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.logo:hover {
+  opacity: 0.85;
+}
+
+.logoImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+}
+
+.logoText {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1677ff;
+}
+
+.menu {
+  border-bottom: none !important;
+  flex: 1;
+}
+
+.changelogButton {
+  padding: 4px 15px;
+  height: 32px;
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.changelogButton:hover {
+  color: #1677ff !important;
+  background: rgba(22, 119, 255, 0.1);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .logo {
+    margin-right: 16px;
+    gap: 8px;
+  }
+  
+  .logoImage {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .logoText {
+    font-size: 1rem;
+  }
+
+  .menu {
+    /* 在手机上隐藏菜单项，只保留主要按钮 */
+    display: none !important;
+  }
+
+  .changelogButton {
+    padding: 4px 8px;
+    margin-left: 8px;
+  }
+
+  .changelogButton span:last-child {
+    display: none;
+  }
+}
+
+/* 小屏幕手机适配 */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .logo {
+    margin-right: 12px;
+    gap: 6px;
+  }
+  
+  .logoText {
+    font-size: 0.9rem;
+  }
+
+  .changelogButton {
+    padding: 3px 6px;
+    margin-left: 6px;
+    font-size: 12px;
+  }
+  
+  /* 在极小屏幕上隐藏更新日志按钮 */
+  .changelogButton {
+    display: none !important;
+  }
+}
+
+/* 平板适配 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .logo {
+    margin-right: 32px;
+  }
+}
+
+/* 触摸设备适配 */
+@media (hover: none) and (pointer: coarse) {
+  .logo:hover {
+    opacity: 1;
+  }
+  
+  .changelogButton:hover {
+    color: inherit !important;
+    background: transparent !important;
+  }
+  
+  .logo:active {
+    opacity: 0.7;
+  }
+  
+  .changelogButton:active {
+    background: rgba(22, 119, 255, 0.1) !important;
+  }
+} 
